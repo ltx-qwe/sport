@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit"/>
+    <title>电脑商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.8.3.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/top.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/favorites.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/imgmove.css"/>
+    <script src="../js/favorites.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/imgmove.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<!--头部-->
+<header class="header">
+    <!--电脑商城logo-->
+    <div class="row">
+        <div class="col-md-3">
+            <a href="index.html">
+                <img src="../images/index/stumalllogo.png"/>
+            </a>
+        </div>
+        <!--快捷选项-->
+        <div class="col-md-9 top-item">
+            <ul class="list-inline pull-right">
+                <li><a href="favorites.html"><span class="fa fa-heart"></span>&nbsp;收藏</a></li>
+                <li class="li-split">|</li>
+                <li><a href="orders.html"><span class="fa fa-file-text"></span>&nbsp;订单</a></li>
+                <li class="li-split">|</li>
+                <li><a href="cart.html"><span class="fa fa-cart-plus"></span>&nbsp;购物车</a></li>
+                <li class="li-split">|</li>
+                <li>
+                    <!--下列列表按钮 ：管理-->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                            <span id="top-dropdown-btn"><span class="fa fa-gears"></span>&nbsp;管理 <span
+                                    class="caret"></span></span>
+                        </button>
+                        <ul class="dropdown-menu top-dropdown-ul" role="menu">
+                            <li><a href="password.html">修改密码</a></li>
+                            <li><a href="userdata.html">个人资料</a></li>
+                            <li><a href="upload.html">上传头像</a></li>
+                            <li><a href="address.html">收货管理 </a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="li-split">|</li>
+                <li><a href="login.html"><span class="fa fa-user"></span>&nbsp;登录</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div id="xxxWindow" class="easyui-window" modal="true" closed="true" title="xxx记录添加" style="width:500px;height:400px;padding:10px;">
+    <div style="padding:10px 120px 76px 83px">
+        <form id="xxxxFormAdd" class="easyui-form" method="post" data-options="novalidate:true" action="${pageContext.request.contextPath}/xxxControl/test.do">
+            <table cellpadding="5">
+                <tr>
+                    <td>内容1:</td>
+                    <td><input class="easyui-textbox" style="width: 200px" type="text" name="key1" data-options="required:true"></input></td>
+                </tr>
+                <tr>
+                    <td>内容2:</td>
+                    <td><input class="easyui-textbox" style="width: 200px" type="text" name="key2" data-options="required:true,validType:'email'"></input></td>
+                </tr>
+                <tr>
+                    <td>内容3:</td>
+                    <td><input class="easyui-textbox" style="width: 200px" type="text" name="key3" data-options="required:true"></input></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>文本域信息:</td>
+                    <td><input class="easyui-textbox" style="width: 200px;height: 60px" name="key4" data-options="multiline:true" ></input></td>
+                </tr>
+            </table>
+        </form>
+        <div style="text-align:center;padding:10px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" style="margin-right: 72px;width: 75px" onclick="$('#xxxxFormAdd').form('clear');">清空</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width: 75px" onclick="submitForm()">保存</a>
+        </div>
+    </div>
+</div>
+<!--$("#btn-login").click(function() {-->
+<!--$.ajax({-->
+<!--url: "/users/login",-->
+
+<!--type: "POST",-->
+<!--data: $("#form-login").serialize(),-->
+<!--dataType: "json",-->
+<!--success: function(json) {-->
+<!--if (json.state == 200) {-->
+<!--alert("登录成功！");-->
+<!--$.cookie("avatar", json.data.avatar, {expires: 7});-->
+<!--console.log("cookie中的avatar=" + $.cookie("avatar"));-->
+<!--location.href = "index.html";-->
+<!--} else {-->
+<!--alert("登录失败！" + json.message);-->
+<!--}-->
+<!--}-->
+
+<!--});-->
+<!--});-->
+<script>
+    function submitForm(){
+        $('#xxxxFormAdd').form('submit',{
+            onSubmit:function(){
+
+            },
+            success:function (res) {
+                res=JSON.parse(res)
+                if (res.result=='success'){
+                    $('#xxxxFormAdd').form('clear');
+                    $('#xxxWindow').window('close')
+                }else {
+                    $.messager.alert("xxx失败",res.message, "error");
+                }
+            }
+        });
+    }
+
+</script>
+<!--页脚结束-->
+</body>
+
+</html>

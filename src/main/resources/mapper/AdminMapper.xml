@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.AdminMapper">
+
+    <resultMap id="adminEntityMap" type="com.example.demo.entity.Admin">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+    <insert id="findAdd" useGeneratedKeys="true" keyProperty="id">
+
+        INSERT INTO t_gl
+            ( glname,yxi,phone,email,gender)
+        VALUES (#{glname},#{yxi},#{phone},#{email},#{gender})
+
+    </insert>
+
+
+    <select id="findName" resultMap="adminEntityMap">
+        SELECT * FROM t_gl WHERE glname = #{glname }
+    </select>
+
+    <select id="findAll" resultMap="adminEntityMap">
+        SELECT * FROM t_gl
+    </select>
+
+</mapper>

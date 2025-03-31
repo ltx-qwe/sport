@@ -1,0 +1,134 @@
+
+
+
+
+
+文档2  ==》  用户注册  ==  》持久层
+
+  用户-创建实体类==》entity包==>BaseEntity
+                          ==>User
+
+  .定义 Mapper 接口 ==>mapper包==>UserMapper ==>第一次创建持久层接口，还应在 StoreApplication 启动类之前添加
+                                           @MapperScan("com.cy.store.mapper")注解，以配置接口文件的位置。
+
+  4 配置 SQL 映射==>定义 xml 映射文件，与对应的接口进行关联。在 src/main/resources 下创建 mapper 文件
+                夹，并在该文件夹下创建 UserMapper.xml 映射文件，进行以上两个抽象方法的映射配置。
+
+
+文档3 ==》用户-注册-业务层
+
+   ==>service包==》ex包 ==>异常类==》.创建ServiceException 自定义异常的基类异常，继承自
+                              RuntimeException 类，并从父类生成子类的五个构造方法。
+                             RuntimeException
+                             -- ServiceException
+                             -- UsernameDuplicateException
+                             -- InsertException
+
+                  impl包==》实现类
+   4.3 接口与抽象方法
+   接口命名建议采用大写的 I 开头，后面再跟上业务名称。
+   1.在 service 包下先创建 com.fx.store.service.IUserService 业务层接口，并在接口中添加抽象方法。
+
+   ==》创建==》UserServiceTests 测试类，编写并执行用户
+      注册业务层的单元测试。
+
+      ==》密码加密 ==>  在 IUserServiceImpl 实现类的 reg 方法中补全加密后的密码和盐值数据，并创建一个执行密
+                   码加密的方法 getMd5Password（String password,String salt）。
+
+
+文档4
+==》用户-注册-控制器
+   5.1 创建响应结果类
+   ==》创建 com.fx.store.util.JsonResult 响应结果类型
+
+   控制器层的调整==>BaseController
+
+文档5 ==》用户登录实现
+   ==》用户-登录-业务层
+     ==规划异常
+
+     接口与抽象方法
+     ===在 IUserService 接口中添加登录功能的抽象方法。
+
+
+文档6==》用户登录扩展（拦截器）
+          用户会话 session
+          session 对象主要存在服务器端，可以用于保存服务器的临时数据对象，所保存的数据可以在整
+          个项目中都可以访问来获取，把 session 的数据看做一个共享的数据，首次登录的时候所获取的
+          用户的数据，转移到 session 对象即可。获取 session 数据：session.getAttribute(“key”)可以获取
+          session 中的数据这种行为进行封装，封装在 BaseController 类中。
+
+文档7==》用户资料的修改
+     ====接口与抽象方法
+         在UserMapper接口添加updatePasswordByUid(Integer uid,String password,String
+         modifiedUser,Date modifiedTime)抽象方法。
+         用注解来简化xml配置时，@Param注解
+
+     ====1.3 配置SQL映射
+     在UserMapper.xml中配置updatePasswordByUid()、findByUid()抽象方法的映射。
+
+
+    //在IUserService中添加changePassword(Integer uid, String username, String oldPassword, String
+    //newPassword)抽象方法。===》在UserServiceImpl类中实现changePassword()抽象方法
+
+     ===>在UserServiceImpl类中实现changePassword()抽象方法。
+       ===>changePassword()方法的具体代码。
+           String中的equals与contentEquals方法，都可以用来比较String对象内容是否相同。
+
+           ==>在UserServiceTests中编写并执行单元测试。
+
+
+
+====>用户-修改密码-控制器
+    3.1 处理异常
+       ==》在用户修改密码的业务中抛出了新的UpdateException异常，需要在BaseController类中进行处理。
+
+
+    3.3 ==>处理请求
+        ==>1.在UserController类中添加处理请求的changePassword(String oldPassword, String newPassword,  HttpSession session)方法。
+             ==>实现UserController控制器中的修改密码方法的代码。
+
+
+
+    个人资料
+      1 用户-个人资料-持久层
+       1.1 规划需要执行的SQL语句
+         ==>在UserMapper接口中添加updateInfoByUid(User user)方法。
+           ===》在UserMapper.xml中配置Integer updateInfoByUid(User user)抽象方法的映射
+            ===》2.在UserMapperTests中编写并执行单元测试。
+
+
+     用户-个人资料-业务层
+       ==>在IUserService接口中添加两个抽象方法，分别对应以上两个功能。==>打开页面时显示当前登录的用户的信息；
+                                                 点击修改按钮时更新用户的信息。
+
+            ==>在IUserService接口中添加两个抽象方法，分别对应以上两个功能。
+
+              ==>实现抽象方法
+                 1.在UserServiceImpl实现类中实现getByUid(Integer uid)和changeInfo(Integer uid, String username,
+                 User user)以上两个抽象方法。
+
+                    >.在UserServiceTests类中进行单元测试。
+
+     用户-个人资料-控制器
+     ====>处理获取用户信息请求
+          1.在UserController类中添加处理请求的getByUid()方法，并导入
+          org.springframework.web.bind.annotation.GetMapping包。
+
+         ==>2.处理修改用户个人信息请求
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new 新创建一个对象

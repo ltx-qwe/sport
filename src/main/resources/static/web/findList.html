@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/findStudentList}">查询信息</a>
+</body>
+</html>
+
+
+（4）编写查询所有页面 findStudentList.html
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="student" type="com.example.crud.pojo.Student"*/-->
+<!--/*@thymesVar id="studentList" type="com.example.crud.controller"*/-->
+<head>
+    <meta charset="UTF-8">
+    <title>查询所有</title>
+</head>
+<body>
+<table border="1">
+    <tr><!--列-->
+        <th>题号</th>
+        <th>题目</th>
+        <th>答案</th>
+        <th>难易程度</th>
+        <th>空格数</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="astract:${astractList}">
+        <td text="${astract.getId}"></td>
+        <td text="${astract.getWord()}"></td>
+        <td text="${astract.getAnwser()}"></td>
+        <td text="${astract.getDiff()}"></td>
+        <td text="${astract.getNum()}"></td>
+        <td>
+
+            <a  role="button" href="@{/delete/${astract.getId()}}">删除</a>
+        </td>
+    </tr>
+</table>
+<div >
+
+    <a  role="button" href="@{/toindex}">返回首页</a>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html >
+    <head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit"/>
+    <title>添加题目</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+ <script src="../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+        <script src="../bootstrap3/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/autoLogin.js" type="text/javascript"></script>
+<!--        <script src="../bootstrap3/jquery-1.8.3.min.js"></script>-->
+<!--        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
+
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<!--        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">-->
+
+<!--    图标 &ndash;&gt;-->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/webindex.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/top.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../css/score.css"/>
+
+</head>
+
+<body>
+<!--头部-->
+<header class="header" style="background-color: #1f4d8c">
+
+    <img src="../images/img/logo1.png" alt="" style="height: 70px;">
+    <span class="pull-right" style="margin-top: 44px;margin-right:10px; color: white"><a href="index.html" style="margin-top: 44px;margin-right:10px; color: white">返回首页</a> </span>
+    <span class="pull-right" style="margin-top: 44px;margin-right:10px; color: white">|</span>
+    <span class="pull-right" style="margin-top: 44px;margin-right:10px; color: white">组卷问题中心</span>
+</header>
+<div class="A">
+
+
+    <div class="container">
+        <div class="sidebar">
+            <ul style="margin-left: 30px;">
+                <li class="menu-item">添加题目</li>
+                <li class="menu-item">查询题目</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="item" id="item1">
+
+                <div class="panel-body">
+<!--                    新增表单开始-->
+                    <form id="form-reg"  class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">题号</label>
+                            <div class="col-md-8">
+                                <input  name="id" type="text" class="form-control" placeholder="请输入题号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">题目</label>
+                            <div class="col-md-8">
+                                <input name="word" type="text" class="form-control" placeholder="请输入题目">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">答案</label>
+                            <div class="col-md-8">
+                                <input name="anwser" type="text" class="form-control" placeholder="请输入答案">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">分数</label>
+                            <div class="col-md-8">
+                                <input name="score" type="text" class="form-control" placeholder="请输入分数">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">难易程度</label>
+                            <div class="col-md-8">
+                                <input name="diff" type="text" class="form-control"placeholder="请输入 难/易 ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">空格数</label>
+                            <div class="col-md-8">
+                                <input name="num" type="text" class="form-control" placeholder="请输入空格数">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><a href="index.html">返回</a>&nbsp;&nbsp;&nbsp;</label>
+                            <div class="col-sm-10">
+                                <input id="btn-reg"  class="btn btn-primary" type="button" value="保存"/>
+
+                                <input type="reset" class="col-md-offset-1 col-md-1 btn btn-primary" value="重置"/>
+                            </div>
+                        </div>
+                    </form>
+
+
+        </div>
+            </div>
+            <div class="item" id="item2" style="background-color: #d0d0d0">
+
+                <form id="form-r"  class="form-horizontal" role="form">
+                    <input type="text" name="q" placeholder="请输入关键词" style="margin-top: 10px;margin-left: 440px">
+                    <input id="btn-x" class="btn btn-primary" type="button" style=" color:#000;border-radius: 30px;background-color: #ffffff;font-size: 12px;" value="搜索"/>
+
+                    <div id="List" style="width: 100%;height: 300px;">
+                        <table id="dataTable" class="table table-bordered" style="text-align: center; font-size: 12px;margin-top: 20px;
+                                 vertical-align: middle; ">
+                            <thead>
+                            <tr>
+                                <th name="id"> 题号</th>
+                                <th> 题目</th>
+                                <th> 答案</th>
+                                <th> 分数</th>
+                                <th> 难易程度</th>
+                                <th> 空格数</th>
+                                <th> 操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            <!-- 数据行将通过JavaScript动态插入到这里 -->
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="pagination" style="margin-left: 500px; width: 200px;height: 100px;">
+                            <!-- 分页链接将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+
+                </form>
+
+
+
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<footer class="footer" style="background-color: #eeeeee;">
+
+    <div class="container beforeBottom">
+        <div class="col-md-1" >
+            <div >
+                <img src="../images/img/blue.png" alt="" class="footLogo"/></div>
+
+        </div>
+        <div class="col-md-11 callus text-center">
+            <div class="col-md-7" >
+                <ul>
+                    <li><a href="#"><p>Copyright © 2018贵州师范学院　校址:贵州省贵阳市乌当区高新路115号</p></a></li>
+                    <li><a href="#">邮编：550018　电话：0851-85842710 　招生热线：0851-85842823</a></li>
+                    <li><a href="#">ICP备案号：黔ICP备11003137号</a></li>
+                    <li><a href="#">公安机关备案号：52011202003218</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2" >
+                <ul>
+                    <li><a href="#"><p>扫一扫分享</p></a></li>
+                    <li><a href="#">隐私说明 版权说明</a></li>
+
+                    <li><a href="#">联系我们</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-2" >
+                <ul>
+                    <li><a href="#">今日访问量:00005327</a></li>
+                    <li><a href="#"> 总访问量：0028348236</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    const menuItems = document.querySelectorAll('.menu-item');
+    const items = document.querySelectorAll('.item');
+    menuItems.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            // 移除所有栏目的 active 类
+            menuItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            // 移除所有内容区域的 active 类
+            items.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            // 给被点击的栏目添加 active 类
+            item.classList.add('active');
+            // 显示对应的内容区域
+            items[index].classList.add('active');
+        });
+    });
+
+
+    $("#btn-reg").click(function () {
+
+        console.log($("#form-reg").serialize())
+
+        $.ajax({
+            url:"/us/re",
+            type:"POST", //数据在表单里，获取整个表单
+            data:$("#form-reg").serialize(),
+            dataType:"json",
+            success:function (json) {
+                if (json.state == 200){
+                    alert("添加成功");
+                }else {
+                    alert("添加失败");
+                }
+            }, error:function (xhr) {
+                alert("添加时产生未知的错误");
+            }
+        });
+    });
+
+
+//查询数据
+
+    $("#btn-x").click(function() {
+        $('#example').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $.ajax({
+            url: "/us/xun",
+            type: "GET",
+            success: function(data) {
+                // 遍历数组中的每个元素，创建表格行和单元格
+                // 使用jQuery遍历数组并插入数据
+                //
+                // 去除重复数据
+                // 使用Set确保数据不重复
+                data = [...new Set(data.map(JSON.stringify))].map(JSON.parse);
+                // 每页最多五行
+                var pageSize = 8;
+                var totalPages = Math.ceil(data.length / pageSize);
+                // $('#dataTable tbody').append('<tr><td>' + element.id + '</td><td>' + element.word + '</td><td>' + element.anwser + '</td><td>' + element.diff + '</td><td>' + element.num + '</td>    <td><button class="editBtn">编辑</button><button class="deleteBtn">删除</button></td></tr>');
+                // 使用jQuery遍历数组并插入数据
+                function renderTable(page) {
+                    $('#dataTable tbody').empty(); // 清空表格内容
+                    var startIndex = (page - 1) * pageSize; // 计算起始索引
+                    var endIndex = Math.min(startIndex + pageSize, data.length); // 计算结束索引
+                    for (var i = startIndex; i < endIndex; i++) {
+                        $('#dataTable tbody').append('<tr><td name="name">' + data[i].id + '</td><td name="word">' + data[i].word + '</td><td>' + data[i].anwser + '</td> <td>' + data[i].score + '</td> <td>' + data[i].diff + '</td><td>' + data[i].num + '</td>       <td><button class="editBtn"><a href="b.html" >编辑</a></button> <button  class="deleteBtn"> 删除 </button></td></tr>');
+                    }
+                }
+
+                // 渲染分页链接
+                function renderPagination() {
+                    $('#pagination').empty(); // 清空分页链接
+                    for (var i = 1; i <= totalPages; i++) {
+                     $('#pagination').append('<a href="" onclick="renderTable(' + i + ')">' + i + '</a> ');
+
+                    }
+                }
+                 // 初始化表格和分页链接
+                renderTable(1);
+                renderPagination();
+
+                // // // 为删除按钮添加点击事件
+                $('.deleteBtn').click(function() {
+                        var row = $(this).closest('td'); // 获取当前行
+                    row.remove(); // 删除当前行
+                    // AJAX 请求来更新数据库（这里需要你的服务器端点）
+                    $.ajax({
+                        url: '/us/delete',
+                        type: 'post',
+                        dataType:"json",
+                        data:{
+                            name:name,
+                        },
+
+
+                        success: function(json) {
+                            if (json.state == 200){
+                                alert('成功');
+                            }
+                          else{
+                                alert('删除失败');
+                            }
+                        },
+                        error: function() {
+                            alert('删除失败');
+                        }
+                    });
+                });
+
+
+                alert("查询成功");
+            },
+            error: function() {
+                alert("查询失败");
+            }
+        });
+    });
+
+
+
+
+
+
+</script>
+
+
+<style>
+    /* 改变按钮样式 */
+    .editBtn, .deleteBtn {
+        height: 20px;
+        width: 40px;
+        background-color: #ffffff; /* 背景颜色 */
+
+        color: #000000; /* 文字颜色 */
+        padding: 0px 0px; /* 内边距 */
+        text-align: center; /* 文字居中 */
+        text-decoration: none; /* 无文本装饰 */
+        display: inline-block;
+        font-size: 10px; /* 字体大小 */
+        margin: 2px 2px; /* 外边距 */
+        cursor: pointer;
+        /* 鼠标指针 */
+    }
+    .pagination{
+
+    }
+    /* 改变分页数字样式 */
+    .pagination a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #ddd;
+        margin-left:440px ;
+        color: black;
+    }
+    .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+    }
+    .pagination a:hover:not(.active) {
+        background-color: #ddd;
+    }
+</style>

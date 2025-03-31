@@ -1,0 +1,114 @@
+.A{
+    height: 450px;
+    width: 100%;
+    background-color: #dedede;
+}
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sidebar {
+    height: 450px;
+    width: 12%;
+    background-color: #1f4d8c;
+    margin-left: -15px;
+}
+
+.content {
+    flex: 1;
+    height:450px;
+    width: 88%;
+    background: linear-gradient(90deg, #ffffff, #434d57);
+
+    margin-left: 0%;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.item {
+    display: none;
+    height: 100%;
+    width: 100%;
+
+}
+
+.item.active {
+    display: block;
+
+}
+
+
+
+
+
+
+
+.A ul li{
+    list-style-type:none;
+    padding-top: 30px;
+    padding-left: 0px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*页眉的内填充*/
+.header {
+    height: 100px;
+    background-color: #1f4e8c;
+}
+
+/*顶部选项总体*/
+.top-item a {
+    color: #ffffff;
+    line-height: 40px;
+}
+
+/*顶部选项的li宽*/
+.top-item li {
+    width: 100px;
+    text-align: center;
+
+    color: white;
+}
+
+/*顶部选项竖线  |  的宽度*/
+.top-item .li-split {
+    width: 10px;
+}
+
+/*搜索文本框宽度*/
+#search {
+    width: 300px;
+}
+
+/*顶部导航条*/
+.top-nav {
+    background-color: #F2F2F2;
+    height: 50px;
+    padding-top: 6px;
+    margin-bottom: 20px;
+}
+
+/*管理下拉框样式*/
+#top-dropdown-btn {
+    color: #ffffff;
+}
+
+/*管理下拉框li*/
+.top-dropdown-ul li {
+    width: 100%;
+}

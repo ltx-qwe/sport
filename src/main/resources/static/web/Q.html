@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <style>
+        .main_left{
+            width: 150px;
+            height: 100%;
+            float:left;
+            background:#c0c0c0;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+<body >
+<div class="iframe">
+    <div class="main_left" style="height: 100%">
+        <ul>
+            <li data-src="a.html">11</li>
+            <li data-src="b.html">22</li>
+            <li data-src="c.html">33</li>
+        </ul>
+    </div>
+    <div class="main_right">
+        <iframe frameborder="0" scrolling="yes" style="width: 80%;height: 100%;" src="findList.html" id="aa"></iframe>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    let items = document.getElementsByTagName("li");
+    for(let i=0; i<items.length; i++) {
+        items[i].onclick = function (){
+            let src = items[i].getAttribute("data-src")
+            document.getElementById("aa").setAttribute("src", src)
+        }
+    }
+
+</script>
+
+</html>
+
+
+</body>
+</html>

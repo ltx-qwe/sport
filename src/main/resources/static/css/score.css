@@ -1,0 +1,55 @@
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.A{
+    height: 590px;
+    width: 100%;
+    background-color: #dedede;
+}
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sidebar {
+    height: 450px;
+    width: 12%;
+    background-color: #1f4d8c;
+    margin-left: -15px;
+}
+
+.content {
+    flex: 1;
+    height:450px;
+    width: 88%;
+    background: linear-gradient(90deg, #ffffff, #434d57);
+
+    margin-left: 0%;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.item {
+    display: none;
+    height: 100%;
+    width: 100%;
+
+}
+
+.item.active {
+    display: block;
+
+}
+ul li{
+    list-style-type:none;
+    padding-top: 30px;
+    padding-left: 0px;
+    color: white;
+}

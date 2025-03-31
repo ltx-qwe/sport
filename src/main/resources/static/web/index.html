@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit"/>
+    <title>首页</title>
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.8.3.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/webindex.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="../css/top.css"/>-->
+
+    <link rel="stylesheet" type="text/css" href="../css/score.css"/>
+
+</head>
+
+<body>
+<!--头部-->
+<header class="header" style="background-color: #00396d">
+
+    <div class="row">
+        <div class="col-md-3">
+            <a href="index.html">
+                <img src="../images/img/logo2.png"/>
+            </a>
+        </div>
+        <!--快捷选项-->
+        <div class="col-md-9 top-item" >
+            <ul class="list-inline pull-right">
+<!--                <li><a href=""><span ></span>&nbsp;问题</a></li>-->
+<!--            //    <li><a href="abstract.html"><span ></span>&nbsp;组卷问题</a></li>-->
+                <li class="li-split">|</li>
+                <li><a href="score.html"><span ></span>&nbsp;成绩管理</a></li>
+                <li class="li-split">|</li>
+
+
+                <li>
+                    <!--下列列表按钮 ：管理-->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                            <span id="top-dropdown-btn"><span class="fa fa-gears"></span>&nbsp;个人中心<span
+                                    class="caret"></span></span>
+                        </button>
+                        <ul class="dropdown-menu top-dropdown-ul" role="menu">
+                            <li><a href="password.html">修改密码</a></li>
+                            <li><a href="userdata.html">个人资料</a></li>
+                            <li><a href="upload.html">上传头像</a></li>
+<!--                            <li><a href="address.html">收货管理 </a></li>-->
+                        </ul>
+                    </div>
+                <li class="li-split">|</li>
+                <li><a href="login.html"><span class="fa fa-user"></span>&nbsp;返回登录</a></li>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+
+
+    <div class="A">
+
+
+        <div class="container">
+            <div class="sidebar">
+                <ul style="margin-left: 30px;">
+                    <li class="menu-item">管理员</li>
+                    <li class="menu-item">运动员</li>
+                    <li class="menu-item">裁判员</li>
+                    <li class="menu-item">教师</li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="item" id="item1">
+                    <div class="fleft" style="width: 50%; float: left;margin-top: 30px">
+                        <!--                    新增表单开始-->
+                        <form id="form-ad"  class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">姓名</label>
+                            <div class="col-md-7">
+                                <input name="glname" type="text" class="form-control" placeholder="请输入">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+                            <div class="col-md-7">
+                                <input name="gender" type="text" class="form-control" placeholder="请输入">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">院别</label>
+                            <div class="col-md-7">
+                                <input name="yxi" type="text" class="form-control" placeholder="请输入">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">电话</label>
+                            <div class="col-md-7">
+                                <input name="phone" type="text" class="form-control" placeholder="请输入">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><a href="index.html">返回</a>&nbsp;&nbsp;&nbsp;</label>
+                            <div class="col-sm-10">
+                                <input id="btn-ad"  class="btn btn-primary" type="button" value="保存"/>
+
+                                <input type="reset" class="col-md-offset-1 col-md-1 btn btn-primary" style="margin-left: 30px" value="重置"/>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                    </div>
+                    <div class="fright" style="width: 50%; float: left;margin-top: 30px">
+                        <form id="form-cx"  class="form-horizontal" role="form">
+                            <input type="text" name="q" placeholder="点击显示所有信息" style="margin-top: 10px;margin-left: 100px">
+                            <input id="btn-cx" class="btn btn-primary" type="button" style=" color:#000;border-radius: 30px;background-color: #ffffff;font-size: 12px;" value="查询"/>
+
+                            <div id="List-cx" style="width: 100%;height: 300px;">
+                                <table id="dataTable" class="table table-bordered" style="text-align: center; font-size: 12px;margin-top: 20px;
+                                 vertical-align: middle; ">
+                                    <thead>
+                                    <tr>
+                                        <th name="id"> 序号</th>
+                                        <!--                                <th> 名字</th>-->
+                                        <th> 姓名</th>
+                                        <th> 性别</th>
+                                        <th> 院系</th>
+                                        <th> 电话</th>
+                                        <th> 邮箱</th>
+                                        <th> 操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <!-- 数据行将通过JavaScript动态插入到这里 -->
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div id="pagination" style="margin-left: 500px; width: 200px;height: 100px;">
+                                    <!-- 分页链接将通过JavaScript动态生成 -->
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+                <div class="item" id="item2">内容2</div>
+                <div class="item" id="item3">内容3
+
+
+
+
+                </div>
+                <div class="item" id="item4">内容3</div>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+    const menuItems = document.querySelectorAll('.menu-item');
+    const items = document.querySelectorAll('.item');
+
+    menuItems.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            // 移除所有栏目的 active 类
+            menuItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            // 移除所有内容区域的 active 类
+            items.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            // 给被点击的栏目添加 active 类
+            item.classList.add('active');
+            // 显示对应的内容区域
+            items[index].classList.add('active');
+        });
+    });
+
+
+    //添加
+    $("#btn-ad").click(function () {
+        console.log($("#form-add").serialize())
+        $.ajax({
+            url:"/ad/a",
+
+            type:"POST", //数据在表单里，获取整个表单
+
+            data:$("#form-ad").serialize(),
+            dataType:"json",
+            success:function (json) {
+                if (json.state == 200){
+                    alert("添加成功");
+
+                }else {
+                    alert("添加失败");
+                }
+
+            }, error:function (xhr) {
+                alert("添加时产生未知的错误");
+            }
+        });
+    });
+
+
+    //查询数据
+    $("#btn-cx").click(function() {
+
+        $.ajax({
+            url: "/ad/x",
+            type: "GET",
+            success: function(data) {
+                // 遍历数组中的每个元素，创建表格行和单元格
+                // 使用jQuery遍历数组并插入数据
+                // 去除重复数据
+                // 使用Set确保数据不重复
+                data = [...new Set(data.map(JSON.stringify))].map(JSON.parse);
+                // 每页最多五行
+                var pageSize = 6;
+                var totalPages = Math.ceil(data.length / pageSize);
+                // 使用jQuery遍历数组并插入数据
+                function renderTable(page) {
+                    $('#dataTable tbody').empty(); // 清空表格内容
+                    var startIndex = (page - 1) * pageSize; // 计算起始索引
+                    var endIndex = Math.min(startIndex + pageSize, data.length); // 计算结束索引
+                    for (var i = startIndex; i < endIndex; i++) {
+                        $('#dataTable tbody').append('<tr><td>' + data[i].id + '</td><td>' + data[i].glname + '</td><td>' + data[i].gender + '</td><td>' + data[i].yxi + '</td> <td>' + data[i].phone + '</td>  <td>' + data[i].email + '</td>         <td><button class="editBtn"><a href="b.html" >编辑</a></button><button class="deleteBtn">删除</button></td></tr>');
+                        //                $('#dataTable tbody').append('<tr><td>' + data[i].id + '</td><td>' + data[i].word + '</td><td>' + data[i].anwser + '</td><td>' + data[i].diff + '</td><td>' + data[i].num + '</td>       <td><button class="editBtn"><a href="b.html" >编辑</a></button><button class="deleteBtn">删除</button></td></tr>');
+
+
+                    }
+                }
+                // 渲染分页链接
+                function renderPagination() {
+                    $('#pagination').empty(); // 清空分页链接
+                    for (var i = 1; i <= totalPages; i++) {
+                        $('#pagination').append('<a href="#" onclick="renderTable(' + i + ')">' + i + '</a> ');
+                    }
+                }
+                // 初始化表格和分页链接
+                renderTable(1);
+                renderPagination();
+
+                // // // 为删除按钮添加点击事件
+                $('.deleteBtn').on('click', function() {
+
+                    var row = $(this).closest('tr'); // 获取当前行
+                    row.remove(); // 删除当前行
+
+                    // AJAX 请求来更新数据库（这里需要你的服务器端点）
+
+                    $.ajax({
+                        url: '/us/delete',
+                        type: 'GET',
+                        dataType:"json",
+
+                        data:{
+                            name:name,
+                        },
+
+                        success: function(json) {
+
+                            alert('成功');
+                        },
+                        error: function() {
+                            alert('删除失败');
+                        }
+                    });
+                });
+
+
+                alert("查询成功");
+            },
+            error: function() {
+                alert("查询失败");
+            }
+        });
+    });
+
+</script>
+<footer class="footer" style="background-color: #eeeeee;">
+
+    <div class="container beforeBottom">
+        <div class="col-md-1" >
+            <div >
+                <img src="../images/img/blue.png" alt="" class="footLogo"/></div>
+
+        </div>
+        <div class="col-md-11 callus text-center">
+            <div class="col-md-7" >
+                <ul>
+                    <li><a href="#"><p>Copyright © 2018贵州师范学院　校址:贵州省贵阳市乌当区高新路115号</p></a></li>
+                    <li><a href="#">邮编：550018　电话：0851-85842710 　招生热线：0851-85842823</a></li>
+                    <li><a href="#">ICP备案号：黔ICP备11003137号</a></li>
+                    <li><a href="#">公安机关备案号：52011202003218</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2" >
+                <ul>
+                    <li><a href="#"><p>扫一扫分享</p></a></li>
+                    <li><a href="#">隐私说明 版权说明</a></li>
+
+                    <li><a href="#">联系我们</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-2" >
+                <ul>
+                    <li><a href="#">今日访问量:00005327</a></li>
+                    <li><a href="#"> 总访问量：0028348236</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
